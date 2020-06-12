@@ -50,7 +50,7 @@ public class TwoSum {
     public static void main(String[] args) {
 
         int[] solution  = solution1();
-        System.out.println(solution);
+        System.out.println(Arrays.toString(solution));
     }
 }
 /**
