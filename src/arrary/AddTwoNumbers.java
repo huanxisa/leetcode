@@ -3,12 +3,7 @@ package arrary;
 
 
 public class AddTwoNumbers {
-    /**
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
+
     public static ListNode solution(ListNode l1, ListNode l2){
 
         //进位标志
@@ -19,7 +14,8 @@ public class AddTwoNumbers {
         ListNode l1tag = l1;
         ListNode l2tag = l2;
 
-        int x,y;
+        int x ;
+        int  y;
         do {
             if(l1tag == null){
                  x = 0;
@@ -59,11 +55,12 @@ public class AddTwoNumbers {
     public static void main(String[] args) {
 
         //创建逆序链表 123
-        ListNode l1 = ListNode.creatListByInt(3);
-        ListNode l2 = ListNode.creatListByInt(7);
-        System.out.println(l2);
-        ListNode solution = AddTwoNumbers.solution(l1, l2);
-        System.out.println(solution);
+        ListNode l1 = ListNode.creatListByInt(631);
+        ListNode l2 = ListNode.creatListByInt(542);
+        ListNode l3 = ListNode.merge2Lists(l1, l2);
+        System.out.println(l3);
+
+
     }
 
 
@@ -91,6 +88,20 @@ class ListNode {
         return result;
     }
 
+    public static ListNode merge2Lists(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        if (l1.val < l2.val) {
+            l1.next = merge2Lists(l1.next, l2);
+            return l1;
+        }
+        l2.next = merge2Lists(l1, l2.next);
+        return l2;
+    }
     @Override
     public String toString() {
         if (next != null) {

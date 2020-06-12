@@ -1,6 +1,6 @@
 package stack;
 
-import java.util.EmptyStackException;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -30,15 +30,15 @@ public class IsValid {
             char c = s.charAt(i);
             if (map.containsKey(c)) {
                 char temp = stack.empty() ? '#' : stack.pop();
-                if (temp != map.get(c)) return false;
-            } else stack.push(c);
+                if (temp != map.get(c)) {return false;}
+            } else {stack.push(c);}
         }
         return stack.isEmpty();
 
     }
 
     public static void main(String[] args) {
-        String s1 = "()";
+        String s1 = "()）";
         String s2 = "()[]{}";
         String s3 = "(]";
         String s4 = "([)]";
